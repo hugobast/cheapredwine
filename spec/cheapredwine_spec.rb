@@ -7,7 +7,7 @@ describe CheapRedWine do
 
   it "creates a Font object from a font file" do
     font.name.should eq "Hobo Std Medium"
-    font.file.should eq file
+    font.file.path.should match file.path
   end
 
   it "can create images from text" do

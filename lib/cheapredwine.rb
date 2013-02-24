@@ -8,10 +8,14 @@ end
 
 module CheapRedWine
   class Font
-    attr_accessor :name, :family, :features, :file
+    attr_accessor :name, :family, :features, :path
 
     def initialize
       yield(self) if block_given?
+    end
+
+    def file
+      File.new(path)
     end
   end
 
@@ -21,7 +25,7 @@ module CheapRedWine
       font.name = parser.font_name
       font.family = parser.family_name
       font.features = parser.features
-      font.file = file
+      font.path = file
     end
   end
 
