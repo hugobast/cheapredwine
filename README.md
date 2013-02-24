@@ -44,6 +44,14 @@ It assumes the following is installed and in the case where it applies, accessib
       features: [liga, salt]	# list of otf features to be applied
     }
 
+##### Configuration
+
+CheapRedWine needs to know where to put ttx files
+
+    CheapRedWine::TTX.configure do |config|
+      config.output_folder = '/path/to/folder'
+    end
+
 ## Contributing
 
 1. Fork it
