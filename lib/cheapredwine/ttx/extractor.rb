@@ -4,7 +4,7 @@ module CheapRedWine
       def initialize(font_file, folder)
         path = File.join(folder, filename(font_file)) 
         unless File.exists?("#{path}.ttx")
-          `ttx -d#{folder} #{font_file.path}`
+          IO.popen(['ttx', "-d#{folder}", "#{font_file.path}"]).read
         end
         @file = File.new("#{path}.ttx")
       end
