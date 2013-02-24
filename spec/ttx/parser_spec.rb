@@ -1,9 +1,9 @@
-require_relative '../../ttx/parser'
+require 'cheapredwine/ttx/parser'
 
-include TTX
+include CheapRedWine::TTX
 
 describe Parser do
-  let(:file) { File.open('fixtures/parser/hobo.ttx') }
+  let(:file) { File.open('spec/fixtures/parser/hobo.ttx') }
   let(:ttx) { Parser.new(file) }
 
   it "parses a list of opentype features from ttx files" do

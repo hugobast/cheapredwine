@@ -1,6 +1,6 @@
-require_relative '../../image/params'
+require 'cheapredwine/image/params'
 
-include Image 
+include CheapRedWine::Image 
 
 describe Params do
   it "takes a bunch of options" do

@@ -1,19 +1,19 @@
-require_relative '../../image/writer'
-require_relative '../../image/params'
+require 'cheapredwine/image/writer'
+require 'cheapredwine/image/params'
 
-include Image
+include CheapRedWine::Image
 
 describe Writer do
-  let(:font) { double("font", path: "fixtures/lato-regular.ttf") }
+  let(:font) { double("font", path: "spec/fixtures/lato-regular.ttf") }
   let(:image) { Params.new(font: font, text: "Lorem ipsum") } 
 
   it "builds a command from a Params object" do
     writer = Writer.new(image)
-    writer.args[0].should eq "--font-file=fixtures/lato-regular.ttf"
+    writer.args[0].should eq "--font-file=spec/fixtures/lato-regular.ttf"
   end
 
   it "generates a image of given text" do
-    file = File.new('fixtures/test.png')
+    file = File.new('spec/fixtures/test.png')
 
     writer = Writer.new(image)
     tempfile = writer.exec
