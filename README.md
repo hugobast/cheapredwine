@@ -18,7 +18,27 @@ It assumes the following is installed and in the case where it applies, accessib
 
 ## Usage
 
-TODO: Write usage instructions here
+#### Getting a font object from a simple ttf or otf file:
+
+    font = CheapRedWine.font(font_file)
+    font.name # => "Font Name"
+    font.features # => ["liga", "onum", "dlig", … "salt"]
+    
+#### Generating images with text for the font:
+
+    image = CheapRedWine.image(font, "some text", options)
+    
+`image` is an IO object that can then be use to write to disk
+
+    
+##### Options
+
+    options = {
+      margin: 5, 				# margin around the text
+      size: 40, 				# size of the text eq to px
+      color: red, 				# the text color
+      features: [liga, salt]	# list of otf features to be applied
+    }
 
 ## Contributing
 
