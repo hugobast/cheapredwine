@@ -1,6 +1,6 @@
 # CheapRedWine 
 
-[![image](https://codeclimate.com/badge.png)](https://codeclimate.com/github/hugobast/cheapredwine)
+[![Code Climate](https://codeclimate.com/github/hugobast/cheapredwine.png)](https://codeclimate.com/github/hugobast/cheapredwine)
 
 
 
