@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = CheapRedWine::VERSION
   gem.authors       = ["Hugo Bastien"]
   gem.email         = ["hugo@hbastien.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{I needed a way to test fonts on the web. I based this library on myfonts.com. CheapRedWine makes use to Harfbuzz' hb-view utility to generate images from fonts with a slew of different parameters. It also uses fontTools' ttx utility for font introspection.}
+  gem.summary       = %q{I needed a way to test fonts on the web. I based this library on myfonts.com. CheapRedWine makes use to Harfbuzz' hb-view utility to generate images from fonts with a slew of different parameters. It also uses fontTools' ttx utility for font introspection.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
