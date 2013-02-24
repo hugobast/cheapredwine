@@ -2,8 +2,10 @@ module CheapRedWine
   module TTX
     class Extractor
       def initialize(font_file, folder)
-        `ttx -d#{folder} #{font_file.path}`
         path = File.join(folder, filename(font_file)) 
+        unless File.exists?("#{path}.ttx")
+          `ttx -d#{folder} #{font_file.path}`
+        end
         @file = File.new("#{path}.ttx")
       end
 

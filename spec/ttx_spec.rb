@@ -19,6 +19,5 @@ describe TTX do
     parser.class.should eq TTX::Parser
 
     parser.family_name.should eq "Hobo Std"
-    File.delete('spec/fixtures/ttx/hobo.ttx')
   end  
 end

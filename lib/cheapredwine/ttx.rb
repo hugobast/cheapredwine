@@ -21,7 +21,7 @@ module CheapRedWine
 
     def self.for_font(font)
       extractor = Extractor.new(font, configuration.output_folder)
-      Parser.new(extractor.ttx_file)
+      parser = Parser.new(extractor.ttx_file)
     end
   end
 end

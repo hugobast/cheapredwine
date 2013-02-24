@@ -7,7 +7,7 @@ module CheapRedWine
       end
 
       def args
-        [font_file, text, foreground, size]
+        [font_file, text, margin, foreground, features, size]
       end
 
       def exec
@@ -34,6 +34,10 @@ module CheapRedWine
 
       def margin
         "--margin=#{@image.margin}"
+      end
+
+      def features
+        "--features=#{@image.features.join(",")}"
       end
     end
   end
