@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'cheapredwine/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "CheapRedWine"
+  gem.name          = "cheapredwine"
   gem.version       = CheapRedWine::VERSION
   gem.authors       = ["Hugo Bastien"]
   gem.email         = ["hugo@hbastien.com"]
