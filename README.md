@@ -18,7 +18,7 @@ It assumes the following is installed and in the case where it applies, accessib
 
 * [cairo](http://www.cairographics.org/releases/)
 * [harfbuzz](http://www.freedesktop.org/software/harfbuzz/release/)
-* [ttx](git@github.com:mcolyer/fonttools.git)
+* [ttx](https://github.com/mcolyer/fonttools)
 
 ## Usage
 
@@ -32,8 +32,7 @@ It assumes the following is installed and in the case where it applies, accessib
 
     image = CheapRedWine.image(font, "some text", options)
     
-`image` is an IO object that can then be use to write to disk
-
+**Caveat: ** `image` is an IO object that can then be use to write to disk. `font` is any object that responds to `#features` and produces a list `["onum", "liga"]` as well as provide a font file object through `#file`. `file` need only know of it's full path to work properly.
     
 ##### Options
 
@@ -51,6 +50,10 @@ CheapRedWine needs to know where to put ttx files
     CheapRedWine::TTX.configure do |config|
       config.output_folder = '/path/to/folder'
     end
+    
+You can also change the output_folder dynamically through
+    
+    CheapRedWine.ttx_output_folder = "path/to/folder"
 
 ## Contributing
 
@@ -59,3 +62,8 @@ CheapRedWine needs to know where to put ttx files
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## TODO
+
+1. Create a new utility using fontTools to have more granularity regarding ttx file outputs
+2. Replace hb-view by something more appropriate (C Extension).
