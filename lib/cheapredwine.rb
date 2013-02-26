@@ -2,12 +2,9 @@ require "cheapredwine/version"
 require "cheapredwine/ttx"
 require "cheapredwine/image"
 
-CheapRedWine::TTX.configure do |config|
-  config.output_folder = 'spec/fixtures'
-end
 
 module CheapRedWine
-  class Font
+  class Meta 
     attr_accessor :name, :family, :features, :path
 
     def initialize
@@ -19,13 +16,13 @@ module CheapRedWine
     end
   end
 
-  def self.font(file)
+  def self.meta(file)
     parser = TTX.for_font(file)
-    Font.new do |font|
-      font.name = parser.font_name
-      font.family = parser.family_name
-      font.features = parser.features
-      font.path = file
+    Meta.new do |meta|
+      meta.name = parser.font_name
+      meta.family = parser.family_name
+      meta.features = parser.features
+      meta.path = file
     end
   end
 
@@ -38,6 +35,14 @@ module CheapRedWine
     })
     params = Image::Params.new(options)
     Image::Writer.new(params).exec
+  end
+
+  def self.ttx_output_folder=(folder)
+    CheapRedWine::TTX.configuration.output_folder = folder
+  end
+
+  def self.ttx_output_folder
+    CheapRedWine::TTX.configuration.output_folder
   end
 
   private
