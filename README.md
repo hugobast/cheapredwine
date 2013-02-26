@@ -32,7 +32,7 @@ It assumes the following is installed and in the case where it applies, accessib
 
     image = CheapRedWine.image(font, "some text", options)
     
-**Caveat: ** `image` is an IO object that can then be use to write to disk. `font` is any object that responds to `#features` and produces a list `["onum", "liga"]` as well as provide a font file object through `#file`. `file` need only know of it's full path to work properly.
+**Caveat:** `image` is an IO object that can then be use to write to disk. `font` is any object that responds to `#features` and produces a list `["onum", "liga"]` as well as provide a font file object through `#file`. `file` need only know of it's full path to work properly.
     
 ##### Options
 
