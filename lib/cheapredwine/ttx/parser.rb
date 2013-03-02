@@ -29,6 +29,10 @@ module CheapRedWine
         namerecord(1).first.text.strip
       end
 
+      def style
+        namerecord(2).first.text.strip
+      end
+
       def namerecord(id)
         @document.xpath("//namerecord[@nameID=#{id}]")
       end

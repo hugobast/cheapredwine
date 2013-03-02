@@ -10,8 +10,9 @@ describe Parser do
     ttx.features.should eq ["kern", "size", "aalt", "frac", "liga", "ordn", "sups"] 
   end
 
-  it "parses name font family and font name" do
+  it "parses attributes" do
     ttx.family_name.should eq "Hobo Std" 
     ttx.font_name.should eq "Hobo Std Medium"
+    ttx.style.should eq "Regular"
   end
 end
