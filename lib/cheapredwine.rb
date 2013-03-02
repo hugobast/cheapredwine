@@ -5,7 +5,7 @@ require "cheapredwine/image"
 
 module CheapRedWine
   class Meta 
-    attr_accessor :name, :family, :features, :path
+    attr_accessor :name, :family, :features, :path, :style
 
     def initialize
       yield(self) if block_given?
@@ -22,6 +22,7 @@ module CheapRedWine
       meta.name = parser.font_name
       meta.family = parser.family_name
       meta.features = parser.features
+      meta.style = parser.style
       meta.path = file
     end
   end
