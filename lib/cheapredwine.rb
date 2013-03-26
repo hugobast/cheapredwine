@@ -1,5 +1,5 @@
 require "cheapredwine/version"
-require "cheapredwine/ttx"
+require "cheapredwine/info"
 require "cheapredwine/image"
 
 
@@ -17,7 +17,7 @@ module CheapRedWine
   end
 
   def self.meta(file)
-    parser = TTX.for_font(file)
+    parser = Info.new file
     Meta.new do |meta|
       meta.name = parser.font_name
       meta.family = parser.family_name

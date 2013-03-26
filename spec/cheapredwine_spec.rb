@@ -5,11 +5,6 @@ describe CheapRedWine do
   let(:file) { File.new('spec/fixtures/hobo.otf') }
   let(:meta) { CheapRedWine.meta(file) }
 
-  it "sets the output folder" do
-    CheapRedWine.ttx_output_folder = "spec/fixtures"
-    CheapRedWine.ttx_output_folder.should eq "spec/fixtures"
-  end
-
   it "gets meta information from a font file" do
     meta.name.should eq "Hobo Std Medium"
     meta.file.path.should match file.path

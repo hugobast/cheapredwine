@@ -6,11 +6,11 @@ module CheapRedWine
       @info = Tipo.info file
     end
 
-    def name
+    def font_name
       @info.naming.name
     end
 
-    def family
+    def family_name
       @info.naming.family_name
     end
 
