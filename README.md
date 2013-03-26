@@ -18,7 +18,6 @@ It assumes the following is installed and in the case where it applies, accessib
 
 * [cairo](http://www.cairographics.org/releases/)
 * [harfbuzz](http://www.freedesktop.org/software/harfbuzz/release/)
-* [ttx](https://github.com/mcolyer/fonttools)
 
 ## Usage
 
@@ -43,18 +42,6 @@ It assumes the following is installed and in the case where it applies, accessib
       features: [liga, salt]	# list of otf features to be applied
     }
 
-##### Configuration
-
-CheapRedWine needs to know where to put ttx files
-
-    CheapRedWine::TTX.configure do |config|
-      config.output_folder = '/path/to/folder'
-    end
-    
-You can also change the output_folder dynamically through
-    
-    CheapRedWine.ttx_output_folder = "path/to/folder"
-
 ## Contributing
 
 1. Fork it
@@ -65,5 +52,4 @@ You can also change the output_folder dynamically through
 
 ## TODO
 
-1. Create a new utility using fontTools to have more granularity regarding ttx file outputs
-2. Replace hb-view by something more appropriate (C Extension).
+1. Replace hb-view by something more appropriate (C Extension).
