@@ -6,5 +6,5 @@ rvm:
 before_script:
   - echo 'yes' | sudo add-apt-repository ppa:olivier-berten/fonts
   - sudo apt-get update
-  - sudo apt-get install cairo
+  - sudo apt-get install libcairo
   - sudo apt-get install harfbuzz
