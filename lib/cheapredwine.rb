@@ -38,14 +38,6 @@ module CheapRedWine
     Image::Writer.new(params).exec
   end
 
-  def self.ttx_output_folder=(folder)
-    CheapRedWine::TTX.configuration.output_folder = folder
-  end
-
-  def self.ttx_output_folder
-    CheapRedWine::TTX.configuration.output_folder
-  end
-
   private
 
   def self.merge_features(all_features, selected_features)
