@@ -3,16 +3,16 @@ require 'tempfile'
 
 describe CheapRedWine do
   let(:file) { File.new('spec/fixtures/hobo.otf') }
-  let(:meta) { CheapRedWine.meta(file) }
+  let(:wine) { CheapRedWine.new(file) }
 
   it "gets meta information from a font file" do
-    meta.name.should eq "Hobo Std Medium"
-    meta.file.path.should match file.path
+    wine.name.should eq "Hobo Std Medium"
+    wine.file.path.should match file.path
   end
 
   it "can create images from text" do
     options = { size: 26, features: ['liga', 'frac'] }
-    image = CheapRedWine.image(meta, 'ffi 1/2', options)
+    image = wine.image 'ffi 1/2', options
     tempfile = Tempfile.new('image')
     tempfile.write(image.read)
     tempfile.close
