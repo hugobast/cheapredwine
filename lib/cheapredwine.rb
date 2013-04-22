@@ -3,7 +3,7 @@ require "cheapredwine/info"
 require "cheapredwine/image"
 
 
-module CheapRedWine
+class CheapRedWine
   class Meta 
     attr_accessor :name, :family, :features, :path, :style
 
@@ -37,8 +37,6 @@ module CheapRedWine
     params = Image::Params.new(options)
     Image::Writer.new(params).exec
   end
-
-  private
 
   def self.merge_features(all_features, selected_features)
     all_features.map do |feature|

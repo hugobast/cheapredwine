@@ -1,6 +1,6 @@
 require 'tipo'
 
-module CheapRedWine
+class CheapRedWine
   class Info
     def initialize file
       @info = Tipo.info file
