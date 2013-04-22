@@ -23,8 +23,10 @@ It assumes the following is installed and in the case where it applies, accessib
 
 #### Getting a font object from a simple ttf or otf file:
 
-    font = CheapRedWine.font(font_file)
+    font = CheapRedWine.meta(font_file)
     font.name # => "Font Name"
+    font.family # => "Font Family"
+    font.style # => "Bold Italic"
     font.features # => ["liga", "onum", "dlig", … "salt"]
     
 #### Generating images with text for the font:
