@@ -23,7 +23,7 @@ It assumes the following is installed and in the case where it applies, accessib
 
 #### Getting a font object from a simple ttf or otf file:
 
-    font = CheapRedWine.meta(font_file)
+    font = CheapRedWine.new font_file
     font.name # => "Font Name"
     font.family # => "Font Family"
     font.style # => "Bold Italic"
@@ -31,10 +31,12 @@ It assumes the following is installed and in the case where it applies, accessib
     
 #### Generating images with text for the font:
 
-    image = CheapRedWine.image(font, "some text", options)
+    image = font.image "some text", options
+    # ... do something with image ...
+    image.close
     
-**Caveat:** `image` is an IO object that can then be use to write to disk. `font` is any object that responds to `#features` and produces a list `["onum", "liga"]` as well as provide a font file object through `#file`. `file` need only know of it's full path to work properly.
-    
+**Caveat:** `image` is an IO object that can then be use to write to disk. You are responsible to close that object.
+   
 ##### Options
 
     options = {
