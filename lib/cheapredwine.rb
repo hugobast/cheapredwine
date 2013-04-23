@@ -21,12 +21,14 @@ class CheapRedWine
 
   def image(text, options = {})
     features = merge_features(font.features, options.fetch(:features) { [] })
-    options.merge!({ 
+    
+    params = options.merge({ 
       features: features,
       font: font.file,
       text: text
     })
-    params = Image::Params.new(options)
+
+    params = Image::Params.new(params)
     Image::Writer.new(params).exec
   end
 
