@@ -4,7 +4,7 @@
 
 
 
-I needed a way to test fonts on the web. I based this library on myfonts.com. CheapRedWine makes use to Harfbuzz' hb-view utility to generate images from fonts with a slew of different parameters. It also uses fontTools' ttx utility for font introspection.
+I needed a way to test fonts on the web. CheapRedWine makes use of Harfbuzz' hb-view utility to generate images from fonts with a slew of different parameters. It also uses tipo for font introspection.
 
 ## Installation
 
@@ -35,7 +35,7 @@ It assumes the following is installed and in the case where it applies, accessib
     # ... do something with image ...
     image.close
     
-**Caveat:** `image` is an IO object that can then be use to write to disk. You are responsible to close that object.
+**Caveat:** `image` is an IO object that can then be use to write to disk. You are expected to close that object.
    
 ##### Options
 
