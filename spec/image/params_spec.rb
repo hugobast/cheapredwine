@@ -1,11 +1,11 @@
 require 'cheapredwine/image/params'
 
-describe CheapRedWine::Image::Params do
+describe Cheapredwine::Image::Params do
   it "takes a bunch of options" do
     font = double
     features = ['kern', 'aalt', 'onum', 'liga']
 
-    params = CheapRedWine::Image::Params.new(
+    params = Cheapredwine::Image::Params.new(
       font: font,
       color: 'black',
       features: features, 

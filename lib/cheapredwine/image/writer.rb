@@ -1,7 +1,7 @@
-class CheapRedWine
+class Cheapredwine
   module Image
     class Writer 
-      def initialize(image, utility = 'hb-view')
+      def initialize image, utility = 'hb-view'
         @utility = utility
         @image = image
       end

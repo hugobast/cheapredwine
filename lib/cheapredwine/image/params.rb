@@ -1,4 +1,4 @@
-class CheapRedWine
+class Cheapredwine
   module Image
     class Params
       attr_reader :font, :color, :text, :features, :size, :margin

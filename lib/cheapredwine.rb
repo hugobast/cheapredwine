@@ -2,7 +2,7 @@ require "cheapredwine/version"
 require "cheapredwine/info"
 require "cheapredwine/image"
 
-class CheapRedWine
+class Cheapredwine
   extend Forwardable
   attr_accessor :font
   def_delegators :@font, :file, :name, :family, :style, :features

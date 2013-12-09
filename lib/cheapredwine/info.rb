@@ -1,9 +1,9 @@
 require 'tipo'
 
-class CheapRedWine
+class Cheapredwine
   class Info
-    def initialize file
-      @info = Tipo.info file
+    def initialize file, parser = Tipo
+      @info = parser.info file
     end
 
     def font_name

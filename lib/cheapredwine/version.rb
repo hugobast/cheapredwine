@@ -1,3 +1,3 @@
-class CheapRedWine
+class Cheapredwine
   VERSION = "0.3.1"
 end

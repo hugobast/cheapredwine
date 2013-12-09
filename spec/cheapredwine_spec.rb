@@ -1,9 +1,9 @@
 require 'cheapredwine'
 require 'tempfile'
 
-describe CheapRedWine do
+describe Cheapredwine do
   let(:file) { File.new('spec/fixtures/hobo.otf') }
-  let(:wine) { CheapRedWine.new(file) }
+  let(:wine) { Cheapredwine.new(file) }
 
   it "gets meta information from a font file" do
     wine.name.should eq "Hobo Std Medium"

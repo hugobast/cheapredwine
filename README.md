@@ -1,10 +1,10 @@
-# CheapRedWine 
+# Cheapredwine 
 
 [![Code Climate](https://codeclimate.com/github/hugobast/cheapredwine.png)](https://codeclimate.com/github/hugobast/cheapredwine)
 
 
 
-I needed a way to test fonts on the web. CheapRedWine makes use of Harfbuzz' hb-view utility to generate images from fonts with a slew of different parameters. It also uses tipo for font introspection.
+I needed a way to test fonts on the web. Cheapredwine uses of Harfbuzz' hb-view utility to generate images from fonts with a slew of different parameters. It also uses tipo for font introspection.
 
 ## Installation
 
@@ -23,7 +23,7 @@ It assumes the following is installed and in the case where it applies, accessib
 
 #### Getting a font object from a simple ttf or otf file:
 
-    font = CheapRedWine.new font_file
+    font = Cheapredwine.new font_file
     font.name # => "Font Name"
     font.family # => "Font Family"
     font.style # => "Bold Italic"
