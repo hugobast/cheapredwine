@@ -2,9 +2,3 @@ language: ruby
 rvm:
   - 1.9.3
   - 2.0.0
-
-before_script:
-  - echo 'yes' | sudo add-apt-repository ppa:olivier-berten/fonts
-  - sudo apt-get update
-  - sudo apt-get install libcairo
-  - sudo apt-get install harfbuzz
