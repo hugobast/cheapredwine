@@ -1,61 +1,41 @@
-require 'ostruct'
+require 'cheapredwine/command/nodes'
 
 class Cheapredwine
   module Command
-    class Builder < OpenStruct
+    class Builder
+      attr_reader :features, :nodes
+      attr_accessor :font_size, :foreground, :background, :margin
+
       def initialize
-        super(defaults)
+        @features = ["-liga"]
+        @nodes = Nodes.new
         yield self if block_given?
       end
 
-      def append_text string, options = {}
-        self.text.push text: string, features: options.fetch(:features, [])
+      def text text, features = []
+        nodes.add text, features
       end
 
-      def prepend_text string, options = {}
-        self.text.unshift text: string, features: options.fetch(:features, [])
+      def turn_on feature
+        features.push "+#{feature}"
       end
 
-      def turn_feature_on feature
-        self.features.push "+#{feature}"
-      end
-
-      def turn_feature_off feature
-        self.features.push "-#{feature}"
+      def turn_off feature
+        features.push "-#{feature}"
       end
 
       def to_params
-        ["--features=#{all_features.join(",")}",
-          "--text=\"#{all_text.join}\""]
+        { features: "#{all_features.join(",")}", text: "\"#{nodes.concat}\"" }
       end
 
       private
 
-      def defaults
-        { features: ["-liga"], text: [] }
-      end
-
-      def all_text
-        self.text.map { |text| text[:text] }
-      end
-
       def all_features
-        self.features + all_features_from_text
+        features + all_features_from_text
       end
 
       def all_features_from_text
-        length = 0
-        features = self.text.map do |text|
-          text_length = text[:text].length
-
-          f = text[:features].map do |feature|
-            "#{feature}[#{length}:#{length + text_length}]"
-          end
-
-          length += text_length
-          f
-        end
-        features.flatten
+        nodes.all.map { |node| node.features }.flatten
       end
     end
   end
