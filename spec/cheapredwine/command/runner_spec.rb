@@ -6,8 +6,8 @@ describe Cheapredwine::Command::Runner do
     Cheapredwine::Command::Builder.new do |builder|
       builder.text "Lorem ipsum dolor"
       builder.turn_on "aalt"
-      builder.font_size = 15
-      builder.font_file = "/path/to/font.otf"
+      builder.font_size 15
+      builder.font_file "/path/to/font.otf"
     end
   }
 
@@ -16,7 +16,7 @@ describe Cheapredwine::Command::Runner do
   it "assembles params from a builder" do
     expect(runner.params).to eq [
       "--features=-liga,+aalt",
-      "--text=\"Lorem ipsum dolor\"",
+      "--text=Lorem ipsum dolor",
       "--font-file=/path/to/font.otf",
       "--font-size=15"
     ]
@@ -26,7 +26,7 @@ describe Cheapredwine::Command::Runner do
     expect(IO).to receive(:popen).with([
       "hb-view",
       "--features=-liga,+aalt",
-      "--text=\"Lorem ipsum dolor\"",
+      "--text=Lorem ipsum dolor",
       "--font-file=/path/to/font.otf",
       "--font-size=15"
     ])

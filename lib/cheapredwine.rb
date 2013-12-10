@@ -1,35 +1,22 @@
 require "cheapredwine/version"
-require "cheapredwine/info"
-require "cheapredwine/image"
+require "cheapredwine/parser"
 
 class Cheapredwine
   extend Forwardable
-  attr_accessor :font
-  def_delegators :@font, :file, :name, :family, :style, :features
 
-  def initialize(file)
-    info = Info.new file
-    @font = Font.new do |font|
-      font.name = info.font_name
-      font.family = info.family_name
-      font.features = info.features
-      font.style = info.style
-      font.path = file
-      font
-    end
+  attr_accessor :file
+  def_delegators :@font_attrs, :font_name, :family_name, :style, :features
+
+  def initialize file
+    @font_attrs = Parser.new file
+    @file = File.new file
   end
 
-  def image(text, options = {})
-    features = merge_features(font.features, options.fetch(:features) { [] })
-    
-    params = options.merge({ 
-      features: features,
-      font: font.file,
-      text: text
-    })
-
-    params = Image::Params.new(params)
-    Image::Writer.new(params).exec
+  def image &block
+    builder = Cheapredwine::Command::Builder.new
+    builder.instance_eval &block
+    builder.font_file file.path
+    Cheapredwine::Command::Runner.new(builder).run!
   end
 
   private
@@ -38,18 +25,6 @@ class Cheapredwine
     all_features.map do |feature|
       prefix = selected_features.include?(feature) ? '+' : '-'
       prefix + feature
-    end
-  end
-
-  class Font
-    attr_accessor :name, :family, :features, :path, :style
-
-    def initialize
-      yield(self) if block_given?
-    end
-
-    def file
-      File.new(path)
     end
   end
 end

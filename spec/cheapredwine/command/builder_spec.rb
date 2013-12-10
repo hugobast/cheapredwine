@@ -8,19 +8,11 @@ describe Cheapredwine::Command::Builder do
     expect(builder.features).to eq ["-liga"]
   end
 
-  it "can initialize with a block" do
-    builder = Cheapredwine::Command::Builder.new do |bldr|
-      bldr.margin = 10
-    end
-
-    expect(builder.margin).to eq 10
-  end
-
   it "transforms it's data to params" do
     builder.text "hello"
     builder.text " world"
 
-    expect(builder.to_params).to eq features: "-liga", text: '"hello world"'
+    expect(builder.to_params).to eq features: "-liga", text: "hello world"
   end
 
   it "transforms it's data to params along with features" do
@@ -28,7 +20,7 @@ describe Cheapredwine::Command::Builder do
     builder.text "stffi"
     builder.text "st", ["dlig"]
 
-    expect(builder.to_params).to eq features: "-liga,liga[0:3],dlig[8:10]", text: '"ffistffist"'
+    expect(builder.to_params).to eq features: "-liga,liga[0:3],dlig[8:10]", text: "ffistffist"
   end
 
   context "with features" do

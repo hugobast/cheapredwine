@@ -4,7 +4,6 @@ class Cheapredwine
   module Command
     class Builder
       attr_reader :features, :nodes
-      attr_accessor :font_file, :font_size, :foreground, :background, :margin
 
       def initialize
         @features = ["-liga"]
@@ -14,6 +13,26 @@ class Cheapredwine
 
       def text text, features = []
         nodes.add text, features
+      end
+
+      def margin size
+        @margin = size
+      end
+
+      def font_size size
+        @font_size = size
+      end
+
+      def font_file file
+        @font_file = file
+      end
+
+      def foreground color
+        @foreground = color
+      end
+
+      def background color
+        @background = color
       end
 
       def turn_on feature
@@ -27,12 +46,12 @@ class Cheapredwine
       def to_params
         {
           features: "#{all_features.join(",")}",
-          text: "\"#{nodes.concat}\"",
-          font_file: font_file,
-          font_size: font_size,
-          foreground: foreground,
-          background: background,
-          margin: margin
+          text: "#{nodes.concat}",
+          font_file: @font_file,
+          font_size: @font_size,
+          foreground: @foreground,
+          background: @background,
+          margin: @margin
         }.reject { |key, val| val.nil? }
       end
 

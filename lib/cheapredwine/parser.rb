@@ -1,7 +1,7 @@
 require 'tipo'
 
 class Cheapredwine
-  class Info
+  class Parser
     def initialize file, parser = Tipo
       @info = parser.info file
     end
