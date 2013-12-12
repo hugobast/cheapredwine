@@ -16,9 +16,9 @@ describe Cheapredwine::Command::Builder do
   end
 
   it "transforms it's data to params along with features" do
-    builder.append_text "ffi", ["liga"]
+    builder.append_text "ffi", with: ["liga"]
     builder.append_text "stffi"
-    builder.append_text "st", ["dlig"]
+    builder.append_text "st", with: ["dlig"]
 
     expect(builder.to_params).to eq features: "-liga,liga[0:3],dlig[8:10]", text: "ffistffist"
   end

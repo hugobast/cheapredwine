@@ -11,8 +11,8 @@ class Cheapredwine
         yield self if block_given?
       end
 
-      def append_text text, features = []
-        nodes.add text, features
+      def append_text text, options = {}
+        nodes.add text, options.fetch(:with, [])
       end
 
       def set_margin size
