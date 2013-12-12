@@ -7,11 +7,10 @@ class Cheapredwine
   extend Forwardable
 
   attr_accessor :file
-  def_delegators :@attrs, :font_name, :family_name, :style, :features
+  def_delegators :attrs, :font_name, :family_name, :style, :features
 
   def initialize file
     @file = file
-    @attrs = Parser.new file
   end
 
   def image &block
@@ -22,6 +21,10 @@ class Cheapredwine
     builder.instance_eval &block
     builder.font_file file.path
     runner
+  end
+
+  def attrs
+    @attrs ||= Parser.new file
   end
 
   private
