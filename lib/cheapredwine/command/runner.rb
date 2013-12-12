@@ -12,12 +12,14 @@ class Cheapredwine
       end
 
       def params
-        builder.to_params.map do |key, val|
-          "--#{parameterize key}=#{val}"
-        end
+        builder.to_params.map { |k, v| parameterize_pair k, v }
       end
 
       private
+
+      def parameterize_pair key, val
+        "--#{parameterize key}=#{val}"
+      end
 
       def parameterize key
         key.to_s.gsub(/_/, "-")
