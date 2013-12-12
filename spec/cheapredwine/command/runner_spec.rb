@@ -4,9 +4,9 @@ require 'cheapredwine/command/builder'
 describe Cheapredwine::Command::Runner do
   let(:builder) {
     Cheapredwine::Command::Builder.new do |builder|
-      builder.text "Lorem ipsum dolor"
-      builder.turn_on "aalt"
-      builder.font_size 15
+      builder.append_text "Lorem ipsum dolor"
+      builder.turn_on_feature "aalt"
+      builder.set_font_size 15
       builder.font_file "/path/to/font.otf"
     end
   }

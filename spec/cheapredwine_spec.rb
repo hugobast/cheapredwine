@@ -21,11 +21,11 @@ describe Cheapredwine do
     ]
 
     image = wine.image do
-      text "ffi 1234567"
-      turn_on "onum"
-      text "st", ["dlig"]
-      margin 0
-      font_size 92
+      append_text "ffi 1234567"
+      turn_on_feature "onum"
+      append_text "st", ["dlig"]
+      set_margin 0
+      set_font_size 92
     end
   end
 end

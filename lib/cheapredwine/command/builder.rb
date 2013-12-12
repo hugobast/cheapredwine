@@ -11,15 +11,15 @@ class Cheapredwine
         yield self if block_given?
       end
 
-      def text text, features = []
+      def append_text text, features = []
         nodes.add text, features
       end
 
-      def margin size
+      def set_margin size
         @margin = size
       end
 
-      def font_size size
+      def set_font_size size
         @font_size = size
       end
 
@@ -27,19 +27,19 @@ class Cheapredwine
         @font_file = file
       end
 
-      def foreground color
+      def set_foreground color
         @foreground = color
       end
 
-      def background color
+      def set_background color
         @background = color
       end
 
-      def turn_on feature
+      def turn_on_feature feature
         features.push "+#{feature}"
       end
 
-      def turn_off feature
+      def turn_off_feature feature
         features.push "-#{feature}"
       end
 
