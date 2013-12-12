@@ -1,10 +1,9 @@
 # Cheapredwine 
 
 [![Code Climate](https://codeclimate.com/github/hugobast/cheapredwine.png)](https://codeclimate.com/github/hugobast/cheapredwine)
+[![Build Status](https://travis-ci.org/hugobast/cheapredwine.png?branch=master)](https://travis-ci.org/hugobast/cheapredwine)
 
-
-
-I needed a way to test fonts on the web. Cheapredwine uses of Harfbuzz' hb-view utility to generate images from fonts with a slew of different parameters. It also uses tipo for font introspection.
+Makes text images. Introspecs (in a limited way thus far) a font file to get to it's metadata. Supports OTF/TTF font features the likes of ligatures, old style numbers, stylistic alternatives, etc. Cheapredwine uses of Harfbuzz' hb-view utility to generate images.
 
 ## Installation
 
@@ -14,7 +13,7 @@ Make sure the dependencies are satisfied
 
 ## Dependencies
 
-It assumes the following is installed and in the case where it applies, accessible from the $PATH env variable.
+It assumes the following is installed and in the case where it applies; accessible from the $PATH env variable.
 
 * [cairo](http://www.cairographics.org/releases/)
 * [harfbuzz](http://www.freedesktop.org/software/harfbuzz/release/)
@@ -24,27 +23,23 @@ It assumes the following is installed and in the case where it applies, accessib
 #### Getting a font object from a simple ttf or otf file:
 
     font = Cheapredwine.new font_file
-    font.name # => "Font Name"
-    font.family # => "Font Family"
+    font.font_name # => "Font Name"
+    font.family_name # => "Font Family"
     font.style # => "Bold Italic"
     font.features # => ["liga", "onum", "dlig", … "salt"]
     
 #### Generating images with text for the font:
 
-    image = font.image "some text", options
-    # ... do something with image ...
-    image.close
-    
-**Caveat:** `image` is an IO object that can then be use to write to disk. You are expected to close that object.
-   
-##### Options
-
-    options = {
-      margin: 5, 				# margin around the text
-      size: 40, 				# size of the text eq to px
-      color: red, 				# the text color
-      features: [liga, salt]	# list of otf features to be applied
-    }
+    image = font.image do
+      append_text "Hello"                   # A regular piece of text
+      append_text "123456", with: ["onum"]  # A piece of text with 'onum' enable
+      turn_on_feature "dlig"                # Turns a feature on for the whole image
+      turn_off_feature "liga"               # Turns off a feature for the whole image
+      set_margin 0
+      set_font_size 32
+      set_background "#123456"
+      set_foreground "#654321"
+    end
 
 ## Contributing
 
@@ -56,4 +51,4 @@ It assumes the following is installed and in the case where it applies, accessib
 
 ## TODO
 
-1. Replace hb-view by something more appropriate (C Extension).
+1. Replace hb-view by something more appropriate (C Extension or pure Ruby implementation).
