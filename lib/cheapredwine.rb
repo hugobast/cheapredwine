@@ -10,8 +10,8 @@ class Cheapredwine
   def_delegators :@attrs, :font_name, :family_name, :style, :features
 
   def initialize file
+    @file = file
     @attrs = Parser.new file
-    @file = File.new file
   end
 
   def image &block
