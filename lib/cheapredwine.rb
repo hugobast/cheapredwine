@@ -1,5 +1,7 @@
+require "forwardable"
 require "cheapredwine/version"
 require "cheapredwine/command"
+require "cheapredwine/parser"
 
 class Cheapredwine
   extend Forwardable
