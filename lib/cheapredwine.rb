@@ -17,8 +17,8 @@ class Cheapredwine
     create(&block).run!
   end
 
-  def create &block
-    builder.instance_eval &block
+  def create
+    yield builder if block_given?
     builder.font_file file.path
     runner
   end

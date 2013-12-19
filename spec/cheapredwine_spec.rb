@@ -20,14 +20,14 @@ describe Cheapredwine do
       "--margin=0"
     ]
 
-    image = wine.image do
-      append_text "ffi 1234567"
-      append_text "st", with: ["dlig"]
+    image = wine.image do |wine|
+      wine.append_text "ffi 1234567"
+      wine.append_text "st", with: ["dlig"]
 
-      turn_on_feature "onum"
+      wine.turn_on_feature "onum"
 
-      set_margin 0
-      set_font_size 92
+      wine.set_margin 0
+      wine.set_font_size 92
     end
   end
 end
